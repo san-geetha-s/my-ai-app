@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+
+textarea {
+  color: black; 
+  font-size: 16px; /* Adjust the font size as needed */
+  font-family: Arial, sans-serif; /* Set a readable font family */
+}
+
