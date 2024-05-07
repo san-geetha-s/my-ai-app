@@ -1,16 +1,20 @@
-import React, { useState, ChangeEvent } from 'react';
+// components/TextInput.tsx
+import React from 'react';
 
 interface TextInputProps {
   value: string;
-  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (value: string) => void;
 }
 
 const TextInput: React.FC<TextInputProps> = ({ value, onChange }) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    onChange(e.target.value);
+  };
+
   return (
     <textarea
       value={value}
-      onChange={onChange}
-      defaultValue="Initial text..."
+      onChange={handleInputChange}
       placeholder="Enter text..."
       rows={5}
       cols={50}
