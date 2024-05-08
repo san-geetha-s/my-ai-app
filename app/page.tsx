@@ -2,17 +2,21 @@
 'use client'
 import React, { useState } from 'react';
 import TextInput from '@/Components/TextInput';
-import TextToSpeech from '@/Components/TextToSpeech';
-
+import SpeechBox from '@/Components/SpeechBox';
+import Layout from '@/Components/Layout';
 const Home = () => {
   const [text, setText] = useState('');
 
   return (
-    <div>
+    <Layout>
+      <div>
+      
       <h1>Text-to-Speech App</h1>
       <TextInput value={text} onChange={setText} />
-      <TextToSpeech text={text} />
+      <SpeechBox /> 
     </div>
+    </Layout>
+    
   );
 };
 

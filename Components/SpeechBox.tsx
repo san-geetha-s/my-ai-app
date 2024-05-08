@@ -1,17 +1,16 @@
-// SpeechBox.js
-import React from 'react';
+// components/SpeechBox.tsx
+import React, { useState } from 'react';
+import TextToSpeech from './TextToSpeech'; // Assuming TextToSpeech component is in TextToSpeech.tsx
 
-interface SpeechBoxProps {
-    speech: string; 
-}
+const SpeechBox = () => {
+  const [text, setText] = useState('');
 
-const SpeechBox: React.FC<SpeechBoxProps> = ({ speech }) => {
   return (
-    <div>
-      <div>{speech}</div>
-      <button>Play</button>
-      <button>Pause</button>
-      <button>Download</button>
+    <div className="w-500 h-500 border-2 border-gray-300 p-4">
+     
+      <div className="flex justify-center items-center h-full">
+        <TextToSpeech text={text} /> {/* Pass the 'text' prop to the TextToSpeech component */}
+      </div>
     </div>
   );
 };
