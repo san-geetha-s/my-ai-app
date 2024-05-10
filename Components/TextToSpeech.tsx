@@ -1,4 +1,3 @@
-// components/TextToSpeech.tsx
 import React from 'react';
 
 interface TextToSpeechProps {
@@ -7,6 +6,7 @@ interface TextToSpeechProps {
 
 const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
   const speakText = () => {
+    console.log('Text to be spoken:', text); // Log the text before speaking
     if ('speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(utterance);

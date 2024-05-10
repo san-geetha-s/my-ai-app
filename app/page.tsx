@@ -1,21 +1,20 @@
 // pages/index.js
 'use client'
 import React, { useState } from 'react';
-import TextInput from '@/Components/TextInput';
+
 import SpeechBox from '@/Components/SpeechBox';
-import Layout from '@/Components/Layout';
+
 const Home = () => {
   const [text, setText] = useState('');
 
   return (
-    <Layout>
-      <div>
-      
-      <h1>Text-to-Speech App</h1>
-      <TextInput value={text} onChange={setText} />
-      <SpeechBox /> 
-    </div>
-    </Layout>
+    
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl font-bold mt-8 mb-4">Text-to-Speech App</h1>
+        
+        <SpeechBox /> {/* Include the SpeechBox component */}
+      </div>
+   
     
   );
 };
