@@ -1,13 +1,16 @@
+/* Import Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Define custom CSS variables */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
+/* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -16,25 +19,36 @@
   }
 }
 
+/* Body styles */
 body {
   color: rgb(var(--foreground-rgb));
+  /* Set the background to the background image */
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); /* Retain the gradient */
+  /* Include background image */
+  background-image: url('../public/_8dd0afd8-2670-4280-85a1-2ce45a2d6669.jpeg'); /* Adjust the path */
+  background-size: cover; /* Cover the entire body */
 }
 
+/* Utility classes */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
 
+/* Additional styles */
 textarea {
   color: black; 
   font-size: 16px; /* Adjust the font size as needed */
   font-family: Arial, sans-serif; /* Set a readable font family */
+}
+.transparent-background {
+  background-image: url('../public/_8dd0afd8-2670-4280-85a1-2ce45a2d6669.jpeg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+  background-color: rgba(255, 255, 255, 0.664); /* Adjust the RGB values and alpha value as needed */
 }
 
