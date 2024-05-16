@@ -60,8 +60,9 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
       {/* <button onClick={downloadSpeech}>
         <FontAwesomeIcon icon={faDownload} />
       </button> */}
-      <button onClick={convertToSpeech}>play/pause</button>
+     
     </div>
+     <button onClick={convertToSpeech}>play/pause</button>
   );
 };
 
