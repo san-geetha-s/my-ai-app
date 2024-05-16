@@ -62,7 +62,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
       </button> */}
      
     </div>
-     <button onClick={convertToSpeech}>play/pause</button>
+    
   );
 };
 
