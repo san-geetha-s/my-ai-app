@@ -1,8 +1,6 @@
-// TextToSpeech.tsx
-
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
 interface TextToSpeechProps {
   text: string;
@@ -49,52 +47,20 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
     }
   };
 
-  
-
-
-  const downloadSpeech = async () => {
-    if (utterance) {
-      try {
-        // Send the text to the server for conversion
-        const response = await fetch('/api/text-to-speech', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ text }),
-        });
-  
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-  
-        const blob = await response.blob();
-        const blobUrl = URL.createObjectURL(blob);
-  
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = 'speech.mp3';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a); // Clean up the temporary link element
-  
-        // Revoke the object URL after the download is complete
-        URL.revokeObjectURL(blobUrl);
-      } catch (error) {
-        console.error('Error downloading speech:', error);
-      }
-    }
+  const convertToSpeech = async () => {
+    // Add your logic here to handle text-to-speech conversion
+    // For example, you can use a text-to-speech API or library
   };
-  
-  
+
   return (
     <div>
       <button onClick={toggleSpeech}>
         {isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
       </button>
-      <button onClick={downloadSpeech}>
+      {/* <button onClick={downloadSpeech}>
         <FontAwesomeIcon icon={faDownload} />
-      </button>
+      </button> */}
+      <button onClick={convertToSpeech}>play/pause</button>
     </div>
   );
 };
