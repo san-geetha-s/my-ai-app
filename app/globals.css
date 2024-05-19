@@ -25,7 +25,7 @@
 
 /* Body styles */
 body {
-  @apply bg-white text-black;
+  
   margin: 0;
   display: flex;
   justify-content: center;
@@ -66,8 +66,5 @@ textarea {
   width: 800px; /* Set the desired constant width */
   padding: 0 20px; /* Add equal padding on both left and right sides */
   text-align: center; /* Optionally, center-align the content */
-}
-.dark body {
-  @apply bg-gray-900 text-white;
 }
 
