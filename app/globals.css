@@ -17,11 +17,20 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+
+  
+    /* Adjust the minimum width based on when you want the padding to start */
+   
 }
 
 /* Body styles */
 body {
-  color: rgb(var(--foreground-rgb));
+  @apply bg-white text-black;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  height: 100vh;
   /* Set the background to the background image */
   /* background: linear-gradient(
       to bottom,
@@ -51,5 +60,14 @@ textarea {
 .transparent-background {
   background-image: url('../public/_8dd0afd8-2670-4280-85a1-2ce45a2d6669.jpeg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
   background-color: rgba(255, 255, 255, 0.664); /* Adjust the RGB values and alpha value as needed */
+}
+
+.container {
+  width: 800px; /* Set the desired constant width */
+  padding: 0 20px; /* Add equal padding on both left and right sides */
+  text-align: center; /* Optionally, center-align the content */
+}
+.dark body {
+  @apply bg-gray-900 text-white;
 }
 
