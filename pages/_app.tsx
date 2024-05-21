@@ -1,5 +1,5 @@
 // pages/_app.tsx
-import '@/styles/globals.css';
+import 'globals.css';
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 
