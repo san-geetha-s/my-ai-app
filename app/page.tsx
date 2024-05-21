@@ -12,7 +12,7 @@ const Home = () => {
       <div className="flex justify-between items-center mt-8 mb-4">
         <h1 className="text-4xl font-bold text-center mx-auto">Text-to-Speech App</h1>
         <div className="ml-auto">
-          <ThemeToggle />
+         <ThemeToggle/>
         </div>
       </div>
       <TextInput value={text} onChange={setText} />

@@ -19,11 +19,16 @@ const ThemeToggle: React.FC = () => {
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
+    console.log('Current theme:', theme);
+    console.log('New theme:', newTheme);
     document.documentElement.classList.remove(theme);
     document.documentElement.classList.add(newTheme);
+    console.log('Classes after toggle:', document.documentElement.classList);
+    setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
   };
+  
+
 
   return (
     <button onClick={toggleTheme} className="text-xl focus:outline-none">

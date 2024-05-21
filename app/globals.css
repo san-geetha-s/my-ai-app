@@ -49,8 +49,18 @@ textarea {
 }
 
 .container {
+  
   width: 800px; /* Set the desired constant width */
   padding: 0 20px; /* Add equal padding on both left and right sides */
   text-align: center; /* Optionally, center-align the content */
+}
+
+.dark {
+  --foreground-color: black;
+}
+
+/* Light mode styles */
+.light {
+  --foreground-color: blue;
 }
 
