@@ -18,6 +18,7 @@ const TextInput: React.FC<TextInputProps> = ({ value, onChange }) => {
       placeholder="Enter text..."
       rows={5}
       cols={50}
+      className="w-full p-2 border border-gray-300 rounded"
     />
   );
 };

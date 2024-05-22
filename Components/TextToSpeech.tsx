@@ -1,3 +1,4 @@
+// components/TextToSpeech.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
@@ -11,8 +12,8 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
   const [utterance, setUtterance] = useState<SpeechSynthesisUtterance | null>(null);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoice, setSelectedVoice] = useState<SpeechSynthesisVoice | null>(null);
-  const [pitch, setPitch] = useState(1); // Default pitch
-  const [rate, setRate] = useState(1); // Default rate
+  const [pitch, setPitch] = useState(1);
+  const [rate, setRate] = useState(1);
   const [highlightedText, setHighlightedText] = useState<string>(text);
   const textRef = useRef<HTMLDivElement | null>(null);
 
@@ -21,7 +22,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
       const synth = window.speechSynthesis;
       const availableVoices = synth.getVoices();
       setVoices(availableVoices);
-      setSelectedVoice(availableVoices[0]); // Set the first available voice as default
+      setSelectedVoice(availableVoices[0]);
     };
 
     window.speechSynthesis.onvoiceschanged = fetchVoices;
@@ -61,7 +62,7 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
         }
       };
 
-      newUtterance.onend = () => setIsPlaying(false); // Reset isPlaying when speech ends
+      newUtterance.onend = () => setIsPlaying(false);
       setUtterance(newUtterance);
       synth.speak(newUtterance);
       setIsPlaying(true);
@@ -108,13 +109,13 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
 
   const rewindSpeech = () => {
     stopSpeech();
-    const currentText = text.slice(0, Math.max(0, text.length - 20)); // Rewind by a fixed number of characters
+    const currentText = text.slice(0, Math.max(0, text.length - 20));
     speakText();
   };
 
   const fastForwardSpeech = () => {
     stopSpeech();
-    const currentText = text.slice(Math.min(text.length, 20)); // Fast forward by a fixed number of characters
+    const currentText = text.slice(Math.min(text.length, 20));
     speakText();
   };
 

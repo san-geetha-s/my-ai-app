@@ -1,32 +1,48 @@
-/* Import Tailwind CSS directives */
+/* styles/globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Define custom CSS variables */
+/* Define custom CSS variables for light mode */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-light: 51, 51, 51;  /* Soft dark gray */
+  --background-light-start: 245, 245, 245;  /* Soft white */
+  --background-light-end: 255, 255, 255;  /* Pure white */
+}
+
+/* Define custom CSS variables for dark mode */
+:root.dark {
+  --foreground-dark: 204, 204, 204;  /* Light gray */
+  --background-dark-start: 30, 30, 30;  /* Dark gray */
+  --background-dark-end: 45, 45, 45;  /* Slightly lighter dark gray */
+}
+
+/* Light mode styles */
+.light {
+  --foreground-color: rgb(var(--foreground-light));
+  --background-color: linear-gradient(180deg, rgb(var(--background-light-start)) 0%, rgb(var(--background-light-end)) 100%);
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 /* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  --foreground-color: rgb(var(--foreground-dark));
+  --background-color: linear-gradient(180deg, rgb(var(--background-dark-start)) 0%, rgb(var(--background-dark-end)) 100%);
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 /* Body styles */
 body {
-
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align items to the top */
+  align-items: flex-start;
   height: 100vh;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 /* Utility classes */
@@ -36,31 +52,42 @@ body {
   }
 }
 
-/* Additional styles */
+/* Textarea styles */
 textarea {
   color: black;
-  font-size: 16px; /* Adjust the font size as needed */
-  font-family: Arial, sans-serif; /* Set a readable font family */
+  font-size: 16px;
+  font-family: Arial, sans-serif;
 }
 
-.transparent-background {
-  background-image: url('../public/_8dd0afd8-2670-4280-85a1-2ce45a2d6669.jpeg'); /* Replace with the actual path to your image */
-  background-color: rgba(255, 255, 255, 0.664); /* Adjust the RGB values and alpha value as needed */
-}
-
+/* Custom container styles */
 .container {
-  
-  width: 800px; /* Set the desired constant width */
-  padding: 0 20px; /* Add equal padding on both left and right sides */
-  text-align: center; /* Optionally, center-align the content */
+  width: 800px;
+  padding: 0 20px;
+  text-align: center;
 }
 
-.dark {
-  --foreground-color: black;
+/* Button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* Light mode styles */
-.light {
-  --foreground-color: blue;
+button:focus {
+  outline: none;
 }
 
+/* Voice selection dropdown */
+select {
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--foreground-color); /* Adjust border color */
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Other styles */
+.transparent-background {
+  background-image: url('../public/_8dd0afd8-2670-4280-85a1-2ce45a2d6669.jpeg');
+  background-color: rgba(255, 255, 255, 0.664);
+}
